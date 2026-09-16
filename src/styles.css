@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0c0b09;
+  --color-plate: #141210;
+  --color-raised: #1c1915;
+  --color-paper: #f3eee4;
+  --color-muted: #a89f90;
+  --color-faint: #6e675c;
+  --color-brass: #c4a574;
+  --color-brass-dim: #8a7350;
+  --color-rule: #2c2820;
+  --color-danger: #c45c48;
+  --color-ok: #7a9a72;
+  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --text-kicker: 0.6875rem;
+  --text-micro: 0.625rem;
+  --tracking-kicker: 0.22em;
+  --tracking-label: 0.18em;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --shadow-border: 0 0 0 1px rgba(243, 238, 228, 0.08);
+  --shadow-brass: 0 0 0 1px rgba(196, 165, 116, 0.35);
+  --ease-out-studio: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-sans);
+    line-height: 1.55;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-family: var(--font-display);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-kicker);
+    letter-spacing: var(--tracking-kicker);
+    text-transform: uppercase;
+    color: var(--color-brass);
+  }
+
+  .plate {
+    background: var(--color-plate);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-border);
+  }
+
+  .raised {
+    background: var(--color-raised);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-border);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
